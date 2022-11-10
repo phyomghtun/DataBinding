@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="apk.testing.databinding.ViewModel" />
+
+    </data>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:text="@{viewmodel.textdata , default =Hello}"
+        android:layout_centerInParent="true" />
+
+    <EditText
+        android:id="@+id/et"
+        android:inputType="text"
+        android:layout_margin="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv"
+        android:text="@={viewmodel.editText}"
+        tools:ignore="MissingConstraints"
+        android:hint="Enter Text"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn"
+        android:layout_centerHorizontal="true"
+        android:text="@{viewmodel.btndata}"
+        android:layout_below="@+id/et"
+        android:onClick="@{viewmodel::onClick}"/>
+
+</RelativeLayout>
+</layout>
